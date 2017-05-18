@@ -60,6 +60,7 @@ module.exports = {
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
     filename: 'src/static/js/bundle.js',
+    chunkFilename: 'src/static/js/[id].bundle.js',
     // This is the URL that app is served from. We use "/" in development.
     publicPath: publicPath,
   },
