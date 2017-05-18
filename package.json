@@ -11,7 +11,8 @@
     "react-router-config": "^1.0.0-beta.3",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "next",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-saga": "^0.15.3"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
