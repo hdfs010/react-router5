@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-function demo(state={}, action) {
+export function demo(state={}, action) {
 	switch(action.type) {
 		case 'Add':
 			return state + 1
@@ -10,7 +10,7 @@ function demo(state={}, action) {
 	}
 }
 
-function counter(state = 0, action) {
+export function counter(state = 0, action) {
 
     switch (action.type) {
         case 'INCREMENT':
@@ -22,10 +22,10 @@ function counter(state = 0, action) {
     }
 }
 
-const reducer = combineReducers({
+const reducer = {
 	demo,
-	counter,
-	router: routerReducer
-})
+	counter
+	
+}
 
 export default reducer

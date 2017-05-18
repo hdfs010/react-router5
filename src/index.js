@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { createStore, applyMiddleware } from 'redux'
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { ConnectedRouter, routerMiddleware, routerReducer } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 
@@ -29,7 +29,10 @@ const middleware = routerMiddleware(history)
 // Also apply our middleware for navigating
  
 const store = createStore(
-	reducers,
+	combineReducers({
+	 ...reducers,
+	 router: routerReducer
+	}),
 	applyMiddleware(middleware, sagaMiddleware)
 )
 
