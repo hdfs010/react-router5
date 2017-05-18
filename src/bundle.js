@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 class Bundle extends Component {
 	state = {
@@ -29,7 +29,7 @@ class Bundle extends Component {
 	}
 
 	render() {
-		return this.props.children(this.state.mod)
+		return this.state.mod ? this.props.children(this.state.mod) : null
 	}
 }
 

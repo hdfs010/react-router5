@@ -2,19 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 // import { push } from 'react-router-redux'
 
-function test({ dispatch, ...others}) {
-	console.log(others)
-	
-	const handleClick = () => {
-		// dispatch(push('/test'))
-	}
+function test() {
+ 
 
 	return (
 		<div>
 			<h1>Test</h1>
-			<button type="button" onClick={handleClick}>点击</button>
 		</div>
 	)
 }
 
-export default connect()(test)
+export default test

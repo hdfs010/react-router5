@@ -59,10 +59,10 @@ module.exports = {
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
-    filename: 'static/js/[name].bundle.js',
+    filename: '[name].bundle.js',
     // This is the URL that app is served from. We use "/" in development.
-    publicPath: publicPath,
-    chunkFilename: 'static/js/[name]-[id].[chunkhash:8].bundle.js',
+    publicPath: '/',
+    chunkFilename: '[id].[chunkhash:8].bundle.js',
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
