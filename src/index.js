@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import createHistory from 'history/createBrowserHistory'
 // import { Route } from 'react-router-dom'
@@ -41,8 +40,8 @@ import Test from './test'
 
 const Abouts = () => (
 	<Bundle load={loadAbout}>
-    {(Abouts) => <Abouts/>}
-  </Bundle>
+	    {(Abouts) => <Abouts/>}
+	</Bundle>
 )
 console.log(Abouts)
 
