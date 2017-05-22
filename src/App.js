@@ -1,31 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom'
 
-class App extends Component {
-    
-    handleClick() {
-        const {dispatch} = this.props
-        dispatch(push('/about'))
-    }
-	render() {
-		return (
-			<div className="App">
-                <div className="App-header">
-                  <img src={logo} className="App-logo" alt="logo" />
-                  <h2>Welcome to React</h2>
-                </div>
-                <p className="App-intro">
-                  To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                <button onClick={this.handleClick.bind(this)}>点击</button>
+import Login from './routers/login/'
+import Router from './router'
+import styles from './App.css'
+
+import Header from './components/layout/header'
+
+class App extends React.Component {
+    render() {
+        console.log(this.props)
+        const { router } = this.props
+        const { pathname } = router.location
+
+        return (
+            // Is it a separate layout
+            pathname.includes('login') ? <Route path={pathname} component={Login} /> :
+            <div className={styles.wrapper}>
+            <Header></Header>
+                <Router></Router>
             </div>
-		);
-	}
+        )
+    }
+}
+
+function mapStateToProps(state) {
+    return state
 }
 
 
-
-export default connect()(App);
+export default connect(mapStateToProps)(App)

@@ -4,6 +4,8 @@ import Bundle from './bundle'
 import { Route } from 'react-router-dom'
 
 
+
+
 const Abouts = () => (
 	<Bundle load={loadAbout}>
 	    {(Abouts) => <Abouts/>}
@@ -15,12 +17,12 @@ class Router extends React.Component {
 
 	render() {
 		return (
-			<div>
-		        <h1>头部</h1>
+			<span>
+		        
 				<Route exact path="/" component={Abouts} />
 				<Route path="/about" component={Abouts} />
-				<h1>底部</h1>
-			</div>
+				
+			</span>
 		)
 	}
 }

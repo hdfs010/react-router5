@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { ConnectedRouter, routerMiddleware, routerReducer } from 'react-router-redux'
+
 import { Provider } from 'react-redux'
 
 import createSagaMiddleware from 'redux-saga'
@@ -11,6 +12,8 @@ import createHistory from 'history/createBrowserHistory'
 
 import reducers from './reducers' // Or wherever you keep your reducers
 import rootSaga from './sagas'
+
+import App from './App'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -35,12 +38,11 @@ sagaMiddleware.run(rootSaga)
 
 // Now you can dispatch navigation actions from anywhere!
 // store.dispatch(push('/about'))
-import Router from './router'
 
 ReactDOM.render(
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-		   <Router />
+		   <App/>
 		</ConnectedRouter>
 	</Provider>,
 	document.getElementById('root')
