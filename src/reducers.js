@@ -1,6 +1,3 @@
-import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
-
 export function demo(state={}, action) {
 	switch(action.type) {
 		case 'Add':

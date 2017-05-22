@@ -1,22 +1,28 @@
 import React from 'react'
-import { renderRoutes } from 'react-router-config'
+import loadAbout from 'bundle-loader?lazy!./about'
+import Bundle from './bundle'
+import { Route } from 'react-router-dom'
 
-import App from './App'
-import About from './about'
-import Test from './test'
 
- 
+const Abouts = () => (
+	<Bundle load={loadAbout}>
+	    {(Abouts) => <Abouts/>}
+	</Bundle>
+)
 
-const routes =[{
-		path: '/',
-		exact: true,
-		component: About
-	}, {
-		path: '/about',
-		component: About
-	}, {
-		path: '/test',
-		component: Test
-	}]
 
-export default routes
+class Router extends React.Component {
+
+	render() {
+		return (
+			<div>
+		        <h1>头部</h1>
+				<Route exact path="/" component={Abouts} />
+				<Route path="/about" component={Abouts} />
+				<h1>底部</h1>
+			</div>
+		)
+	}
+}
+
+export default Router
