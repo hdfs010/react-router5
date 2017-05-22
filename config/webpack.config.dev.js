@@ -158,14 +158,14 @@ module.exports = {
 				query: {
 					name: 'static/media/[name].[hash:8].[ext]'
 				}
-			}, { // node_modules not use css modules
-				test: /\.less$/,
-				include: paths.appNodeModules,
-                loader: 'style!css!postcss!less'
 			}, {
 				test: /\.less$/,
 				include: paths.appSrc,
                 loader: 'style!css?modules&localIdentName=[local]--[hash:base64:5]!postcss!less'
+			},	{ // node_modules not use css modules
+				test: /\.less$/,
+				include: paths.appNodeModules,
+                loader: 'style!css!postcss!less'
 			},
 			// ** STOP ** Are you adding a new loader?
 			// Remember to add the new extension(s) to the "url" loader exclusion list.

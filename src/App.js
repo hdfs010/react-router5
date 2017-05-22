@@ -4,9 +4,10 @@ import { Route } from 'react-router-dom'
 
 import Login from './routers/login/'
 import Router from './router'
-import styles from './App.css'
+import styles from './App.less'
 
 import Header from './components/layout/header'
+import Sidebar from './components/layout/sidebar'
 
 class App extends React.Component {
     render() {
@@ -18,8 +19,13 @@ class App extends React.Component {
             // Is it a separate layout
             pathname.includes('login') ? <Route path={pathname} component={Login} /> :
             <div className={styles.wrapper}>
-            <Header></Header>
-                <Router></Router>
+                <Sidebar></Sidebar>
+                <div className={styles.rightMain}>
+                    <Header></Header>
+                    <div className={styles.content}>
+                        <Router></Router>
+                    </div>
+                </div>
             </div>
         )
     }

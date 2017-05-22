@@ -110,6 +110,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.less$/,
           /\.json$/,
           /\.svg$/
         ],
@@ -124,6 +125,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',
+        query: {
+          plugins: [
+            ['import', [{ libraryName: "antd", style: true }]],
+          ],
+        }
         
       },
       // The notation here is somewhat confusing.
@@ -142,7 +148,7 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style',
-          'css?importLoaders=1!postcss',
+          'css?modules&localIdentName=[local]--[hash:base64:5]!postcss',
           extractTextPluginOptions
         )
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
@@ -160,7 +166,16 @@ module.exports = {
         query: {
           name: 'static/media/[name].[hash:8].[ext]'
         }
-      }
+      },
+      {
+        test: /\.less$/,
+        include: paths.appSrc,
+                loader: 'style!css?modules&localIdentName=[local]--[hash:base64:5]!postcss!less'
+      },  { // node_modules not use css modules
+        test: /\.less$/,
+        include: paths.appNodeModules,
+                loader: 'style!css!postcss!less'
+      },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]

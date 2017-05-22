@@ -1,0 +1,35 @@
+// use in global overried antd
+@import url('./common.less');
+:global {
+    .ant-menu-vertical .ant-menu-item, .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title {
+        font-size: 14px;
+    }
+    .ant-menu-item.dd-menu-item {
+        padding-left: 28px!important;
+        .fa {
+            margin-right: 10px;
+        }
+    }
+    .ant-menu{
+        background: @menu-bg-color!important;
+        border-right: 0!important;
+    }
+    .ant-menu-item{
+        color: @menu-title-color;
+        > a{
+            color: #ccc;
+        }
+    }
+    .ant-menu-submenu{
+        > .ant-menu{
+            background: @menu-bg-color!important;
+        }
+        > .ant-menu-submenu-title{
+            color: @menu-title-color;
+        }
+    }
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+        color: @header-bg-color;
+        background: lighten(@menu-bg-color, 20%)!important;
+    }
+}
